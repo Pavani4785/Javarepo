@@ -1,0 +1,22 @@
+name: Publish Artifacts and Deploy
+
+on:
+  push:
+    branches:
+      - main
+      - patch*
+      - feature*
+  workflow_dispatch:
+    inputs:
+      deploy:
+        description: 'Deploy artifacts after publishing'
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  publish-and-deploy:
+    uses: subaruofamerica/cv-cicd-workflows/.github/workflows/gradle-publish-and-deploy.yaml@main
+    secrets: inherit
+    with:
+      deploy: ${{ inputs.deploy }}

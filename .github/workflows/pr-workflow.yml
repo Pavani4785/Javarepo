@@ -1,0 +1,12 @@
+name: Build & Test Repo
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    uses: subaruofamerica/cv-cicd-workflows/.github/workflows/gradle-build.yml@main
+    secrets: inherit

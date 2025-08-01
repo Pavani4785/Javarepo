@@ -1,0 +1,12 @@
+name: Publish Artifacts
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    uses: subaruofamerica/cv-cicd-workflows/.github/workflows/gradle-publish.yml@main
+    secrets: inherit
